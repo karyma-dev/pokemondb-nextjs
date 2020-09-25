@@ -1,35 +1,28 @@
-import React,{ useState } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Axios from 'axios'
+import axios from 'axios'
 
 const Pokemon = () => {
-    const [loading, setLoading] = useState(true)
-    const [pokemon, setPokemon] = useState()
-    const [errorMsg, setErrorMsg] = useState('')
+    const [pokemon, setPokemon] = useState(null)
 
     const router = useRouter()
-    const name = router.query.id
 
-    if(name){
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-            .then(({data}) => {
-                setPokemon(data)
-                setLoading(false)
-                console.log(data)
-            })
-            .catch((err) => setErrorMsg('Pokemon Not Found'))
-    }
+    useEffect(() => {
+        const name = router.query.id
+        if(name){
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+                .then(res => {
+                    setPokemon(res.data)
+                })
+        }
+    }, [router])
 
-    if(loading){
-        return <h1>Loading</h1>
-    } else {
-        return (
-            <div>
-                { errorMsg }
-                <h1>Pokemon</h1>
-            </div>
-        )
-    }
+    console.log(pokemon)
+
+    return (
+        <h1>Hello</h1>
+    )
+
 }
 
 export default Pokemon
