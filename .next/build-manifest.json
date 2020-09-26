@@ -24,10 +24,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/pokemon/[id]": [
+    "/pokedex": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/pokemon/[id].js"
+      "static/chunks/pages/pokedex.js"
+    ],
+    "/pokedex/[id]": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/pokedex/[id].js"
     ]
   },
   "ampFirstPages": []
