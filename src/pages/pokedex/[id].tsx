@@ -29,8 +29,6 @@ const Pokedex = () => {
         }
     }, [router])
 
-    console.log(pokemon)
-
     if(loading) {
         return <h1>Loading...</h1>
     } else {

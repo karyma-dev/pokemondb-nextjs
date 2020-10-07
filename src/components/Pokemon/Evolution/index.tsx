@@ -19,38 +19,17 @@ const Evolution = ({evolution_chain, pokemon_name}) => {
         let evoData = evolution.chain
 
         if(evoData.evolves_to.length > 1) {
-            evoChain = [...evoChain, {
-                "species_name": evoData.species.name,
-                "min_level": null,
-                "min_happiness": null,
-                "trigger_name": null,
-                "item": null
-            }]
-
             evoData.evolves_to.forEach((evoData) => {
-                let evoDetails = evoData.evolution_details[0]
-                evoChain = [...evoChain, {
-                    "species_name": evoData.species.name,
-                    "min_level": evoDetails ? evoDetails.min_level : null,
-                    "min_happiness": evoDetails ? evoDetails.min_happiness : null,
-                    "trigger_name": evoDetails ? evoDetails.trigger.name : null,
-                    "item": evoDetails ? evoDetails.item : null
-                }]
+                evoChain = [...evoChain, evoData.species.name]
             })
 
-            return <Description evoChain={evoChain} multi/>
+            return <Description evoChain={evoChain} child={evoData.species.name} multi/>
 
         } else {
 
             do {
-                let evoDetails = evoData.evolution_details[0]
-    
                 evoChain.push({
                     "species_name": evoData.species.name,
-                    "min_level": !evoDetails ? null : evoDetails.min_level,
-                    "min_happiness": !evoDetails ? null : evoDetails.min_happiness,
-                    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
-                    "item": !evoDetails ? null : evoDetails.item
                     })
     
                 evoData = evoData.evolves_to[0]

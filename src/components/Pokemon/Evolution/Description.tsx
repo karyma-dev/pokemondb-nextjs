@@ -1,29 +1,21 @@
 import styles from './Description.module.css'
 
-const Description = ({evoChain, multi}) => {
+const Description = ({evoChain, multi, child}) => {
+    if(multi){
+        let paragraph = `<span class="capitalize"><a href="${child}">${child}</a></span> evolves to `
+        console.log(evoChain)
+        for(let i = 0; i < evoChain.length; i++){
+            let pokemon = evoChain[i]
+            paragraph += `<span class="capitalize"><a href="${pokemon}">${pokemon}</a></span>`
 
-    if(multi) {
-        let a = evoChain[0].species_name
-
-        const filteredList = evoChain.filter(pokemon => {
-            if(pokemon.species_name === a) {
-                return false
+            if(i === evoChain.length - 1){
+                paragraph += '.'
+            } else {
+                paragraph += ' / '
             }
+        }
 
-            return true
-        }).map(pokemon => {
-            return (
-                <>
-                    <span className={styles.cap}>{a}</span> evolves to <span className={styles.cap}>{pokemon.species_name}</span>.{"  "}
-                </>
-            )
-        })
-
-        return (
-            <>
-                {filteredList}
-            </>
-        )
+        return <p dangerouslySetInnerHTML={{ __html: paragraph }}></p>
     }
 }
 
