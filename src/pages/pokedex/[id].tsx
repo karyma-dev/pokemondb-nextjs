@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 
-import Pokemon from '../../components/Pokemon'
-
 const Pokedex = () => {
     const [pokemon, setPokemon] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -29,10 +27,12 @@ const Pokedex = () => {
         }
     }, [router])
 
+    console.log(pokemon)
+
     if(loading) {
         return <h1>Loading...</h1>
     } else {
-        return <Pokemon pokemon={pokemon}/>
+        return null
     }
 }
 
