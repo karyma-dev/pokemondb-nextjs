@@ -1,9 +1,15 @@
-import data from './AutoCompleteData'
+import React, { useState } from 'react'
+import SuggestionBox from './SuggestionBox'
 
 const SearchBar = () => {
+    const [text, setText] = useState('')
 
-    console.log(data)
-    return null
+    return  (
+        <div>
+            <input onChange={(e) => setText(e.target.value)}/>
+            <SuggestionBox text={text}/>
+        </div>
+    )
 }
 
 export default SearchBar
