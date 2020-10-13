@@ -12,8 +12,7 @@ const Pokedex = () => {
         const name = router.query.id
         if(name){
             let pokemonData
-
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
                 .then(res => {
                     pokemonData = res.data
                     return axios.get(res.data.species.url)
@@ -26,8 +25,6 @@ const Pokedex = () => {
                 })
         }
     }, [router])
-
-    console.log(pokemon)
 
     if(loading) {
         return <h1>Loading...</h1>

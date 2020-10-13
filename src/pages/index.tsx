@@ -3,7 +3,7 @@ import SearchBar from '../components/SearchBar'
 
 const Homepage = () => {
     return  (
-        <div className="home">
+        <div className="home background">
             <Navbar />
             <SearchBar />
         </div>
