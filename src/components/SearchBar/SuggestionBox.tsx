@@ -1,18 +1,20 @@
 import Pokemons from '../../assets/data/Pokemons'
 import Berries from '../../assets/data/Berries'
 
+import styles from './SuggestionBox.module.css'
+
 const SuggestionBox = ({text, autoComplete}) => {
     const renderSuggestions = () => {
         let suggestions = []
 
         Pokemons.forEach(pokemon => {
-            if(pokemon.includes(text.toLowerCase())){
+            if(pokemon.includes(text)){
                 suggestions = [...suggestions, { [pokemon]: 'pokedex' }]
             }
         })
 
         Berries.forEach(berry => {
-            if(berry.includes(text.toLowerCase())){
+            if(berry.includes(text)){
                 suggestions = [...suggestions, { [berry]: 'berries' }]
             }
         })
@@ -34,13 +36,13 @@ const SuggestionBox = ({text, autoComplete}) => {
             }
         })
 
-        return suggestions.map((data, i) => <li key={i} onClick={() => autoComplete(data)}>{Object.keys(data)}</li>)
+        return suggestions.map((data, i) => <li className={styles.item} key={i} onClick={() => autoComplete(data)}>{Object.keys(data)}</li>)
     }
 
     const render = text ? renderSuggestions() : null
 
     return (
-        <ul>
+        <ul className={styles.list}>
             {render}
         </ul>
     )
