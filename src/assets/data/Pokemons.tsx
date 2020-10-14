@@ -1,7 +1,7 @@
 const Pokemons = [
-    'Pikachu',
-    'Eevee',
-    'Bulbasaur'
+    'pikachu',
+    'eevee',
+    'bulbasaur'
 ]
 
 export default Pokemons

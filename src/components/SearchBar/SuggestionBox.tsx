@@ -30,8 +30,6 @@ const SuggestionBox = ({text, autoComplete}) => {
             }
         })
 
-        console.log(suggestions)
-
         return suggestions.map((data, i) => <li className={styles.item} key={i} onClick={() => autoComplete(data)}>{Object.keys(data)}</li>)
     }
 
