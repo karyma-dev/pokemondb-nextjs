@@ -6,27 +6,21 @@ import styles from './SuggestionBox.module.css'
 const SuggestionBox = ({text, autoComplete}) => {
     const renderSuggestions = () => {
         let suggestions = []
+        let lowerCaseText = text.toLowerCase()
+
+        Berries.forEach(berry => {
+            let lowerCaseBerry = berry.toLowerCase()
+            if(lowerCaseBerry.includes(lowerCaseText)){
+                suggestions = [...suggestions, { [berry]: 'berry' }]
+            }
+        })
 
         Pokemons.forEach(pokemon => {
-            if(pokemon.includes(text)){
+            let lowerCasePokemon = pokemon.toLowerCase()
+            if(lowerCasePokemon.includes(lowerCaseText)){
                 suggestions = [...suggestions, { [pokemon]: 'pokedex' }]
             }
         })
-
-        Berries.forEach(berry => {
-            if(berry.includes(text)){
-                suggestions = [...suggestions, { [berry]: 'berries' }]
-            }
-        })
-
-        function sortByKey(array, key) {
-            return array.sort((a, b) => {
-              let x = a[key];
-              let y = b[key];
-              
-              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            });
-        }
 
         suggestions.sort((a, b) => {
             if(Object.keys(a) > Object.keys(b)){
@@ -35,6 +29,8 @@ const SuggestionBox = ({text, autoComplete}) => {
                 return -1
             }
         })
+
+        console.log(suggestions)
 
         return suggestions.map((data, i) => <li className={styles.item} key={i} onClick={() => autoComplete(data)}>{Object.keys(data)}</li>)
     }

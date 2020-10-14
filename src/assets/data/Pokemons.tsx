@@ -1,7 +1,7 @@
-const pokemons = [
-    'pikachu',
-    'eevee',
-    'bulbasaur'
+const Pokemons = [
+    'Pikachu',
+    'Eevee',
+    'Bulbasaur'
 ]
 
-export default pokemons
+export default Pokemons
