@@ -1,0 +1,19 @@
+.navbar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 1px 10px grey;
+}
+
+.link {
+}
+
+.link:nth-of-type(2){
+    margin: 0 30px;
+}

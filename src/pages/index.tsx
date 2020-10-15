@@ -1,6 +1,12 @@
+import Navbar from '../components/Navbar'
+import SearchBar from '../components/SearchBar'
+
 const Homepage = () => {
     return  (
-        <h1>Homepage</h1>
+        <div className="home background">
+            <Navbar />
+            <SearchBar />
+        </div>
     )
 }
 

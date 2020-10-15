@@ -1,21 +1,26 @@
-import React from 'react'
-
-import Evolution from './Evolution'
+import Abilities from './Abilities'
 import Held from './Held'
-import Sprites from './Sprites'
+import Moves from './Moves'
+import Stats from './Stats'
+import Sprite from './Sprite'
+import Type from './Type'
+
+import styles from './index.module.css'
 
 const Pokemon = ({ pokemon }) => {
-    return (
-        <div>
-            <div>
-                <Sprites sprites={pokemon.sprites}/> 
-                <h1>
-                    {pokemon.name}
-                </h1>
-            </div>
+    const { abilities, base_experience, held_items, id, moves, name, sprites, stats, types } = pokemon
 
-            <Evolution pokemon_name={pokemon.name} evolution_chain={pokemon.species.evolution_chain}/>
-            <Held held_items={pokemon.held_items}/>
+    return (
+        <div className={styles.container}>
+            <Sprite sprites={sprites} name={name} />
+            Name: {name}
+            National No: {id}
+            Base Exp: {base_experience}
+            <Abilities abilities={abilities} />
+            <Held held={held_items} />
+            <Stats stats={stats} />
+            <Type types={types} />
+            <Moves moves={moves} />
         </div>
     )
 }
