@@ -5,11 +5,13 @@ import Stats from './Stats'
 import Sprite from './Sprite'
 import Type from './Type'
 
+import styles from './index.module.css'
+
 const Pokemon = ({ pokemon }) => {
     const { abilities, base_experience, held_items, id, moves, name, sprites, stats, types } = pokemon
 
     return (
-        <div>
+        <div className={styles.container}>
             <Sprite sprites={sprites} name={name} />
             Name: {name}
             National No: {id}
