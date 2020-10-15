@@ -1,1 +1,0 @@
-{"ast":null,"code":"const Spirite = () => {};\n\nexport default Spirite;","map":{"version":3,"sources":["/Users/karyma/Desktop/Github/Pokemondb/src/components/Pokemon/Sprite.tsx"],"names":["Spirite"],"mappings":"AAAA,MAAMA,OAAO,GAAG,MAAM,CAErB,CAFD;;AAIA,eAAeA,OAAf","sourcesContent":["const Spirite = () => {\n\n}\n\nexport default Spirite"]},"metadata":{},"sourceType":"module"}
