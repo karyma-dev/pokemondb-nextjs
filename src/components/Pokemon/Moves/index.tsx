@@ -1,8 +1,11 @@
+import React, { useState } from 'react'
+import Generations from './Generations'
+import MoveList from './MoveList'
+
 const Moves = (props) => {
-    let o = {}
+    const [ generation, setGeneration ] = useState('sun-moon')
 
-
-    const generation = props.moves.reduce((total, currentValue) => {
+    const generations = props.moves.reduce((total, currentValue) => {
         if(typeof total !== 'object'){
             total = {}
         }
@@ -10,7 +13,7 @@ const Moves = (props) => {
         currentValue.version_group_details.forEach(move => {
             const key = move.version_group.name
             const newObj = {
-                move: currentValue.move.name,
+                name: currentValue.move.name,
                 level: move.level_learned_at,
                 method: move.move_learn_method.name,
                 mId: move.move_learn_method.url.match(/\/[0-9]+\//)[0],
@@ -26,13 +29,17 @@ const Moves = (props) => {
         })
 
         return total
-    })
+    }, {})
 
-    console.log(generation)
+    const changeGeneration = (generation) => {
+        setGeneration(generation)
+    }
+
 
     return (
         <div>
-
+            <Generations generations={generations} changeGeneration={changeGeneration}/>
+            <MoveList moveList={generations[generation]}/>
         </div>
     )
 }
