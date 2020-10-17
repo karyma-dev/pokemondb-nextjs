@@ -1,8 +1,14 @@
+import { FC } from 'react'
 import Generation from '../../../assets/data/Generation'
 
-const Generations = ({ generations, changeGeneration }) => {
+interface Props { 
+    generations: any, 
+    changeGeneration: Function 
+}
 
-    const mapGeneration = Generation.map((gen, i) => {
+const Generations: FC<Props> = ({ generations, changeGeneration }) => {
+
+    const mapGeneration : JSX.Element[] = Generation.map((gen, i) => {
         return <button 
             key={i}
             onClick={() => changeGeneration(gen.name)} 
