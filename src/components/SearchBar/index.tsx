@@ -5,10 +5,9 @@ import SearchIcon from '../../assets/img/icons/Search.svg'
 
 import styles from './index.module.css'
 
-const SearchBar : React.FC = () => {
+const SearchBar: React.FC = () => {
     const router = useRouter()
     const [text, setText] = useState('')
-    
 
     const autoComplete = (data) => {
         const a = Object.values(data)
@@ -18,11 +17,15 @@ const SearchBar : React.FC = () => {
         router.push(route)
     }
 
-    return  (
+    return (
         <div className={styles.form}>
             <div className={styles.container}>
-                <input className={styles.input} onChange={(e: React.FormEvent<HTMLInputElement>) => setText(e.target.value)} value={text}/>
-                <img className={styles.icon} src={SearchIcon} alt="Search Icon"/>
+                <input
+                    className={styles.input}
+                    onChange={(e: React.FormEvent<HTMLInputElement>) => setText(e.target.value)}
+                    value={text}
+                />
+                <img className={styles.icon} src={SearchIcon} alt="Search Icon" />
             </div>
             <SuggestionBox text={text} autoComplete={autoComplete} />
         </div>

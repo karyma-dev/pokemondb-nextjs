@@ -11,15 +11,16 @@ const Pokedex = () => {
 
     useEffect(() => {
         const name = router.query.id
-        if(name){
+        if (name) {
             let pokemonData
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${String(name).toLowerCase()}`)
-                .then(res => {
+            axios
+                .get(`https://pokeapi.co/api/v2/pokemon/${String(name).toLowerCase()}`)
+                .then((res) => {
                     pokemonData = res.data
                     return axios.get(res.data.species.url)
                 })
-                .then(res => {
-                    pokemonData = {...pokemonData, species: res.data }
+                .then((res) => {
+                    pokemonData = { ...pokemonData, species: res.data }
 
                     setPokemon(pokemonData)
                     setLoading(false)
@@ -27,10 +28,10 @@ const Pokedex = () => {
         }
     }, [router])
 
-    if(loading) {
+    if (loading) {
         return <h1>Loading...</h1>
     } else {
-        return <Pokemon pokemon={pokemon}/>
+        return <Pokemon pokemon={pokemon} />
     }
 }
 

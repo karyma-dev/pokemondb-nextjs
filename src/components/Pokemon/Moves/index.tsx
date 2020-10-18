@@ -6,29 +6,28 @@ interface Props {
     moves: Array<any>
 }
 
-type moveObj =  {
+type moveObj = {
     version_group: {
-        name: string,
+        name: string
         url: any
-    },
-    level_learned_at: number,
+    }
+    level_learned_at: number
     move_learn_method: {
-        name: string,
+        name: string
         url: any
     }
 }
 
-const Moves : FC<Props> = (props) => {
-
-    const [ generation, setGeneration ] = useState('sun-moon')
+const Moves: FC<Props> = (props) => {
+    const [generation, setGeneration] = useState('sun-moon')
 
     const generations = props.moves.reduce((total, currentValue) => {
-        if(typeof total !== 'object'){
+        if (typeof total !== 'object') {
             total = {}
         }
 
-        currentValue.version_group_details.forEach((move : moveObj) => {
-            const key : string = move.version_group.name
+        currentValue.version_group_details.forEach((move: moveObj) => {
+            const key: string = move.version_group.name
             const newObj = {
                 name: currentValue.move.name,
                 level: move.level_learned_at,
@@ -37,7 +36,7 @@ const Moves : FC<Props> = (props) => {
                 vId: move.version_group.url.match(/\/[0-9]+\//)[0]
             }
 
-            if(typeof total[key] === 'undefined') {
+            if (typeof total[key] === 'undefined') {
                 total[key] = []
                 total[key].push(newObj)
             } else {
@@ -48,15 +47,14 @@ const Moves : FC<Props> = (props) => {
         return total
     }, {})
 
-    const changeGeneration = (generation : string) => {
+    const changeGeneration = (generation: string) => {
         setGeneration(generation)
     }
 
-
     return (
         <div>
-            <Generations generations={generations} changeGeneration={changeGeneration}/>
-            <MoveList moveList={generations[generation]}/>
+            <Generations generations={generations} changeGeneration={changeGeneration} />
+            <MoveList moveList={generations[generation]} />
         </div>
     )
 }

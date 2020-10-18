@@ -1,5 +1,8 @@
 const Held = (props) => {
-    const held = props.held.length > 0 ? props.held.map(({item}, i) => <li key={i}>{item.name}</li>) : "none"
+    const held =
+        props.held.length > 0
+            ? props.held.map(({ item }, i) => <li key={i}>{item.name}</li>)
+            : 'none'
 
     return (
         <div>

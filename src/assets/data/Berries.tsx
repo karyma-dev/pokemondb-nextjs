@@ -1,6 +1,3 @@
-const Berries = [
-    'Aguav',
-    'Aspear'
-]
+const Berries = ['Aguav', 'Aspear']
 
 export default Berries

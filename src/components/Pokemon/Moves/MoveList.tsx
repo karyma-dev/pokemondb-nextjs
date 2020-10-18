@@ -1,7 +1,6 @@
-const MoveList = ({moveList}) => {
-    
+const MoveList = ({ moveList }) => {
     const sortedMoveList = moveList.sort((a, b) => {
-        if(a.level > b.level) {
+        if (a.level > b.level) {
             return 1
         } else {
             return -1
@@ -27,9 +26,7 @@ const MoveList = ({moveList}) => {
                     <th>Obtain From</th>
                 </tr>
             </thead>
-            <tbody>
-                {mapMoveList}
-            </tbody>
+            <tbody>{mapMoveList}</tbody>
         </table>
     )
 }
