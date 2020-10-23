@@ -1,12 +1,15 @@
-import React, { FC } from 'react'
+import React, { ReactElement } from 'react'
 import Generation from '../../../assets/data/Generation'
 
 interface Props {
-    generations: any
-    changeGeneration: Function
+    generations: {
+        [key: string]: []
+    }
+    changeGeneration: (generation: string) => undefined
 }
 
-const Generations: FC<Props> = ({ generations, changeGeneration }) => {
+const Generations = ({ generations, changeGeneration }: Props): ReactElement => {
+    console.log(changeGeneration)
     const mapGeneration: JSX.Element[] = Generation.map((gen, i) => {
         return (
             <button
