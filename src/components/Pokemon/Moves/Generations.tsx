@@ -9,7 +9,6 @@ interface Props {
 }
 
 const Generations = ({ generations, changeGeneration }: Props): ReactElement => {
-    console.log(changeGeneration)
     const mapGeneration: JSX.Element[] = Generation.map((gen, i) => {
         return (
             <button
