@@ -1,4 +1,18 @@
-const MoveList = ({ moveList }) => {
+import React, { ReactElement } from 'react'
+
+interface Props {
+    moveList: [
+        {
+            level: number
+            name: string
+            method: string
+            mId: string
+            vId: string
+        }
+    ]
+}
+
+const MoveList = ({ moveList }: Props): ReactElement => {
     const sortedMoveList = moveList.sort((a, b) => {
         if (a.level > b.level) {
             return 1

@@ -5,7 +5,7 @@ interface Props {
     generations: {
         [key: string]: []
     }
-    changeGeneration: (generation: string) => undefined
+    changeGeneration: (generation: string) => void
 }
 
 const Generations = ({ generations, changeGeneration }: Props): ReactElement => {
