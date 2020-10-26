@@ -30,7 +30,6 @@ const Moves = (props: Props): ReactElement => {
     const [generation, setGeneration] = useState('sun-moon')
 
     const generations = props.moves.reduce((total: { [key: string]: any }, currentValue) => {
-        console.log(total)
         if (typeof total !== 'object') {
             total = {}
         }
