@@ -1,3 +1,4 @@
+import React, { ReactElement } from 'react'
 import Abilities from './Abilities'
 import Held from './Held'
 import Moves from './Moves'
@@ -7,7 +8,13 @@ import Type from './Type'
 
 import styles from './index.module.css'
 
-const Pokemon = ({ pokemon }) => {
+interface Props {
+    pokemon: {
+        [key: string]: any
+    }
+}
+
+const Pokemon = ({ pokemon }: Props): ReactElement => {
     const {
         abilities,
         base_experience,
