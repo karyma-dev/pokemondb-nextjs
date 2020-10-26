@@ -11,7 +11,7 @@ import styles from './index.module.css'
 interface Props {
     pokemon: {
         [key: string]: any
-    }
+    } | null
 }
 
 const Pokemon = ({ pokemon }: Props): ReactElement => {

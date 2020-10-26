@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import Pokemon from '../../components/Pokemon'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 
-const Pokedex = () => {
+const Pokedex = (): ReactElement => {
     const [pokemon, setPokemon] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -12,7 +12,7 @@ const Pokedex = () => {
     useEffect(() => {
         const name = router.query.id
         if (name) {
-            let pokemonData
+            let pokemonData: any
             axios
                 .get(`https://pokeapi.co/api/v2/pokemon/${String(name).toLowerCase()}`)
                 .then((res) => {
