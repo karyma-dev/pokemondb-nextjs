@@ -1,4 +1,19 @@
-const Stats = (props) => {
+import React, { ReactElement } from 'react'
+
+interface Props {
+    stats: [
+        {
+            base_stat: number
+            effort: number
+            stat: {
+                name: string
+                url: string
+            }
+        }
+    ]
+}
+
+const Stats = (props: Props): ReactElement => {
     const stats = props.stats.map((stats, i) => {
         const stat = stats.stat
 
