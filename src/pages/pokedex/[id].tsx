@@ -3,7 +3,7 @@ import Pokemon from '../../components/Pokemon'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 
-const Pokedex = (): ReactElement => {
+const PokedexRoute = (): ReactElement => {
     const [pokemon, setPokemon] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -35,4 +35,4 @@ const Pokedex = (): ReactElement => {
     }
 }
 
-export default Pokedex
+export default PokedexRoute

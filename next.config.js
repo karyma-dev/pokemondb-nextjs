@@ -1,15 +1,15 @@
-const withImages = require('next-images')
+// const withImages = require('next-images')
 
-module.exports = {
-    async redirects() {
-        return [
-            {
-                source: '/pokedex',
-                destination: '/',
-                permanent: true
-            }
-        ]
-    }
-}
+// module.exports = {
+//     async redirects() {
+//         return [
+//             {
+//                 source: '/pokedex',
+//                 destination: '/',
+//                 permanent: true
+//             }
+//         ]
+//     }
+// }
 
-module.exports = withImages()
+// module.exports = withImages()
