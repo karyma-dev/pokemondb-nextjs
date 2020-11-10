@@ -1,7 +1,11 @@
 import React from 'react'
 import Downshift from 'downshift'
+import { matchSorter } from 'match-sorter'
 
 import Data from './Data'
+
+const getItems = (value: string | null) =>
+    value ? matchSorter(Data, value, { keys: ['name'] }) : null
 
 const Autocomplete = () => {
     return (
@@ -12,7 +16,7 @@ const Autocomplete = () => {
                     getInputProps,
                     getMenuProps,
                     getItemProps,
-
+                    inputValue,
                     isOpen,
                     highlightedIndex
                 }) => {
@@ -29,18 +33,20 @@ const Autocomplete = () => {
                                         overflowY: 'scroll'
                                     }
                                 })}>
-                                {isOpen
-                                    ? Data.map((item, i) => (
+                                {isOpen && getItems(inputValue)
+                                    ? getItems(inputValue).map((item, i) => (
                                           <li
-                                              key={i}
+                                              key={`${item.name}_${i}`}
                                               {...getItemProps({
                                                   item,
                                                   style: {
                                                       backgroundColor:
-                                                          i === highlightedIndex ? 'gray' : 'none'
+                                                          i === highlightedIndex
+                                                              ? 'gray'
+                                                              : 'transparent'
                                                   }
                                               })}>
-                                              {item}
+                                              {item.name}
                                           </li>
                                       ))
                                     : null}
