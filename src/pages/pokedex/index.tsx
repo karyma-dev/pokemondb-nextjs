@@ -1,7 +1,12 @@
 import React from 'react'
+import Navbar from '../../components/Navbar'
 
 const Pokedex = () => {
-    return <h1>Pokedex</h1>
+    return (
+        <div className="background">
+            <Navbar />
+        </div>
+    )
 }
 
 export default Pokedex
