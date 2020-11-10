@@ -1,7 +1,7 @@
 import React from 'react'
 import Downshift from 'downshift'
 
-import Data from '../../assets/data/Pokemons'
+import Data from './Data'
 
 const Autocomplete = () => {
     return (
