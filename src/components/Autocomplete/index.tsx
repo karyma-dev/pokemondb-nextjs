@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Router, useRouter } from 'next/router'
 import Downshift from 'downshift'
 import { matchSorter } from 'match-sorter'
 
@@ -7,12 +8,28 @@ import Data from './Data'
 const getItems = (value: string | null) =>
     value ? matchSorter(Data, value, { keys: ['name'] }) : null
 
+const itemToString = (item) => (item ? item.name : '')
+
 const Autocomplete = () => {
+    const [pokemon, setPokemon] = useState('')
+    const router = useRouter()
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        router.push({
+            pathname: `/pokedex/${pokemon}`
+        })
+    }
+
+    const onChange = (e) => {
+        setPokemon(e.name)
+    }
+
     return (
         <div>
-            <Downshift>
+            <Downshift onChange={onChange} itemToString={itemToString}>
                 {({
-                    getLabelProps,
                     getInputProps,
                     getMenuProps,
                     getItemProps,
@@ -21,9 +38,8 @@ const Autocomplete = () => {
                     highlightedIndex
                 }) => {
                     return (
-                        <div style={{ position: 'relative' }}>
-                            <label {...getLabelProps()}></label>
-                            <input {...getInputProps()} />
+                        <form style={{ position: 'relative' }} onSubmit={onSubmit}>
+                            <input {...getInputProps({})} />
                             <ul
                                 {...getMenuProps({
                                     style: {
@@ -51,7 +67,7 @@ const Autocomplete = () => {
                                       ))
                                     : null}
                             </ul>
-                        </div>
+                        </form>
                     )
                 }}
             </Downshift>
