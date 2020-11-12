@@ -16,7 +16,7 @@ const Pokedex = () => {
         return (
             <div className={styles.cell} key={`${pokemon}_${i + 1}`}>
                 <div className={styles.number}>{i + 1}</div>
-                <div>
+                <div className={styles.link}>
                     <Link href={`/pokedex/${linkText}`}>{pokemon}</Link>
                 </div>
             </div>

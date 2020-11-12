@@ -5,26 +5,42 @@
     top: 20%;
     height: 80%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
 }
 
 .table {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 50px 0;
 }
 
 .cell {
     width: 300px;
     display: flex;
-    padding: 10px;
     border: solid 1px gray;
+    margin-left: -1px;
+    margin-top: -1px;
 }
 
 .number {
     width: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border-right: 1px solid gray;
 }
 
 .link {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.link a {
+    color: blue;
 }
