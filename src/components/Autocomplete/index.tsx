@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Downshift from 'downshift'
 import { matchSorter } from 'match-sorter'
 

@@ -31,3 +31,7 @@ h4 {
 h5 {
     font-size: 1.333rem;
 }
+
+a {
+    text-decoration: none;
+}
