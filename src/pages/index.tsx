@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+import Background from '../components/Background'
 import Home from '../components/Home'
 import Navbar from '../components/Navbar'
 
-const Homepage = () => {
+const Homepage = (): ReactElement => {
     return (
-        <div className="background">
+        <Background>
             <Navbar />
             <Home />
-        </div>
+        </Background>
     )
 }
 

@@ -6,7 +6,7 @@ import styles from './index.module.css'
 const Navbar = () => {
     return (
         <ul className={styles.ul}>
-            <div className={`container ${styles.container}`}>
+            <div className={`${styles.container} container`}>
                 <li className={styles.li}>
                     <Link href="/">Home</Link>
                 </li>
