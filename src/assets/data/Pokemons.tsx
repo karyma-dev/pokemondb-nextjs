@@ -770,7 +770,6 @@ const Pokemons = [
     'Sandygast',
     'Palossand',
     'Pyukumuku',
-    'Type: Null',
     'Silvally',
     'Minior',
     'Komala',

@@ -14,7 +14,7 @@ const Navbar = () => {
                     <Link href="/pokedex">Pokedex</Link>
                 </li>
                 <li className={styles.li}>
-                    <Link href="/berry">Berries</Link>
+                    <Link href="/berries">Berries</Link>
                 </li>
                 <li className={styles.li}>
                     <Autocomplete />

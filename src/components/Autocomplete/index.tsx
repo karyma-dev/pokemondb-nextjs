@@ -4,6 +4,8 @@ import Downshift from 'downshift'
 import { matchSorter } from 'match-sorter'
 
 import Data from './Data'
+import logo from '../../assets/img/icons/search.svg'
+import styles from './index.module.css'
 
 const getItems = (value: string | null) =>
     value ? matchSorter(Data, value, { keys: ['name'] }) : null
@@ -39,16 +41,9 @@ const Autocomplete = () => {
                 }) => {
                     return (
                         <form style={{ position: 'relative' }} onSubmit={onSubmit}>
-                            <input {...getInputProps({})} />
-                            <ul
-                                {...getMenuProps({
-                                    style: {
-                                        height: '300px',
-                                        width: '100%',
-                                        position: 'absolute',
-                                        overflowY: 'scroll'
-                                    }
-                                })}>
+                            <input className={styles.input} {...getInputProps()} />
+                            <image src={logo} />
+                            <ul className={styles.ul} {...getMenuProps()}>
                                 {isOpen && getItems(inputValue)
                                     ? getItems(inputValue).map((item, i) => (
                                           <li
@@ -56,9 +51,10 @@ const Autocomplete = () => {
                                               {...getItemProps({
                                                   item,
                                                   style: {
+                                                      padding: '5px 10px',
                                                       backgroundColor:
                                                           i === highlightedIndex
-                                                              ? 'gray'
+                                                              ? 'gainsboro'
                                                               : 'transparent'
                                                   }
                                               })}>
