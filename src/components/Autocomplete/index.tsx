@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { useRouter } from 'next/router'
 import Downshift from 'downshift'
 import { matchSorter } from 'match-sorter'
@@ -10,13 +10,13 @@ import styles from './index.module.css'
 const getItems = (value: string | null) =>
     value ? matchSorter(Data, value, { keys: ['name'] }) : null
 
-const itemToString = (item) => (item ? item.name : '')
+const itemToString = (item: { name: string; type: string } | null) => (item ? item.name : '')
 
-const Autocomplete = () => {
+const Autocomplete = (): ReactElement => {
     const [pokemon, setPokemon] = useState('')
     const router = useRouter()
 
-    const onSubmit = (e) => {
+    const onSubmit = (e: any) => {
         e.preventDefault()
 
         router.push({
@@ -24,7 +24,7 @@ const Autocomplete = () => {
         })
     }
 
-    const onChange = (e) => {
+    const onChange = (e: any) => {
         setPokemon(e.name)
     }
 
