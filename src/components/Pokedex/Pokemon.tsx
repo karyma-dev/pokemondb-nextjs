@@ -28,7 +28,7 @@ const Pokemon = ({ pokemon }: Props): ReactElement => {
     } = pokemon
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} container`}>
             <Sprite sprites={sprites} name={name} />
             Name: {name}
             National No: {id}

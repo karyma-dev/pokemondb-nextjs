@@ -1,4 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react'
+import Background from '../../components/Background'
+import Navbar from '../../components/Navbar'
 import Pokemon from '../../components/Pokedex/Pokemon'
 import { useRouter } from 'next/router'
 import axios from 'axios'
@@ -31,7 +33,12 @@ const PokedexRoute = (): ReactElement => {
     if (loading) {
         return <h1>Loading...</h1>
     } else {
-        return <Pokemon pokemon={pokemon} />
+        return (
+            <Background>
+                <Navbar />
+                <Pokemon pokemon={pokemon} />
+            </Background>
+        )
     }
 }
 
