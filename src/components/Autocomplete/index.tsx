@@ -29,7 +29,7 @@ const Autocomplete = () => {
     }
 
     return (
-        <div>
+        <div className={styles.div}>
             <Downshift onChange={onChange} itemToString={itemToString}>
                 {({
                     getInputProps,
@@ -40,9 +40,8 @@ const Autocomplete = () => {
                     highlightedIndex
                 }) => {
                     return (
-                        <form style={{ position: 'relative' }} onSubmit={onSubmit}>
+                        <form className={styles.form} onSubmit={onSubmit}>
                             <input className={styles.input} {...getInputProps()} />
-                            <image src={logo} />
                             <ul className={styles.ul} {...getMenuProps()}>
                                 {isOpen && getItems(inputValue)
                                     ? getItems(inputValue).map((item, i) => (
@@ -51,7 +50,7 @@ const Autocomplete = () => {
                                               {...getItemProps({
                                                   item,
                                                   style: {
-                                                      padding: '5px 10px',
+                                                      padding: '5px',
                                                       backgroundColor:
                                                           i === highlightedIndex
                                                               ? 'gainsboro'
@@ -67,6 +66,8 @@ const Autocomplete = () => {
                     )
                 }}
             </Downshift>
+
+            <img className={styles.icon} src={logo} />
         </div>
     )
 }

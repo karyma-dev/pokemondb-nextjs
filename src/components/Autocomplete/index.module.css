@@ -1,5 +1,13 @@
+.div {
+    display: flex;
+}
+
+.form {
+    position: relative;
+}
+
 .ul {
-    width: 100%;
+    width: calc(100% + 41px);
     position: absolute;
     overflow-y: scroll;
     background-color: white;
@@ -9,4 +17,12 @@
 
 .input {
     padding: 5px;
+    border: 1px solid gray;
+    border-right: none;
+}
+
+.icon {
+    border: 1px solid gray;
+    border-left: none;
+    padding: 0 10px;
 }
