@@ -18,15 +18,15 @@ const Stats = (props: Props): ReactElement => {
         const stat = stats.stat
 
         return (
-            <li key={i}>
-                {stat.name}: {stats.base_stat}
-            </li>
+            <div className="capitalize" key={i}>
+                <strong>{stat.name}:</strong> {stats.base_stat}
+            </div>
         )
     })
 
     return (
         <div>
-            Stats:
+            <strong>Stats</strong>
             {stats}
         </div>
     )

@@ -15,14 +15,14 @@ interface Props {
 
 const Abilities = (props: Props): ReactElement => {
     const abilities = props.abilities.map(({ ability }, i) => (
-        <li className="capitalize" key={i}>
-            {ability.name}
-        </li>
+        <span className="capitalize" key={i}>
+            {`${ability.name} `}
+        </span>
     ))
 
     return (
         <div>
-            Abilities
+            <strong>Abilities: </strong>
             {abilities}
         </div>
     )

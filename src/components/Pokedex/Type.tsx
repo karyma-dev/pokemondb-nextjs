@@ -14,11 +14,15 @@ interface Props {
 
 const Type = (props: Props): ReactElement => {
     console.log(props)
-    const types = props.types.map(({ type }, i) => <li key={i}>{type.name}</li>)
+    const types = props.types.map(({ type }, i) => (
+        <span className="capitalize" key={i}>
+            {`${type.name} `}
+        </span>
+    ))
 
     return (
         <div>
-            Types:
+            <strong>Types: </strong>
             {types}
         </div>
     )
